@@ -9,10 +9,10 @@ import java.util.List;
 @Service
 public class ServicioSpaService {
 
-    @Autowired // Inyecta (trae) el repositorio que creamos antes
+    @Autowired 
     private ServicioRepository servicioRepository;
 
-    // Método para obtener todos los servicios y mostrarlos en React
+    
     public List<Servicio> obtenerTodosLosServicios() {
         return servicioRepository.findAll();
     }
