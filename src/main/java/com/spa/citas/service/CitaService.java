@@ -19,30 +19,30 @@ public class CitaService {
     //metodo que usare en react
     public Cita agendarCita(Cita nuevaCita) {
 
-        //verificar si la fecha y hora ya estan ocupadas
+        
         if (citaRepository.existsByFechaAndHora(nuevaCita.getFecha(), nuevaCita.getHora())) {
-            //si ya existe lanzamos un error que React mostrara al cliente
+            
             throw new RuntimeException("Lo sentimos, este horario ya está ocupado. Por favor elige otro.");
         }
 
-        //guardando los datos del cliente (usuario) en la base de datos primero
+        
         Usuario usuarioGuardado = usuarioRepository.save(nuevaCita.getUsuario());
         nuevaCita.setUsuario(usuarioGuardado);
 
-        //confirmar la cita
+        
         nuevaCita.setEstado("CONFIRMADA");
 
-        //Guardar la cita final en la base de datos
+        
         return citaRepository.save(nuevaCita);
     }
 
 
-    //obtener las citas para mostrar en react
+
     public java.util.List<Cita> obtenerTodasLasCitas() {
         return citaRepository.findAll();
     }
 
-    //borrar cita por ID
+    
     public void cancelarCita(Integer idCita) {
         citaRepository.deleteById(idCita);
     }
