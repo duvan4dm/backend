@@ -5,7 +5,7 @@ import lombok.Data;
 
 @Entity
 @Table(name = "usuarios")
-// aqui se crean los getters y setters automaticos usando lombok
+
 @Data
 public class Usuario {
     @Id
