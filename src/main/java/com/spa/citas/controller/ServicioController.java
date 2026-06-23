@@ -15,7 +15,7 @@ public class ServicioController {
     @Autowired
     private ServicioSpaService servicioSpaService;
 
-    //cuando react haga una peticion GET a /api/servicios se ejecuta esto
+    
     @GetMapping
     public List<Servicio> obtenerServicios() {
         return servicioSpaService.obtenerTodosLosServicios();
