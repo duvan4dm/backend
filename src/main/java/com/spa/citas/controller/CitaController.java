@@ -14,16 +14,16 @@ public class CitaController {
     @Autowired
     private CitaService citaService;
 
-    //cuando React haga una peticion POST enviando datos se ejecuta esto
+    
     @PostMapping
     public ResponseEntity<?> agendarCita(@RequestBody Cita nuevaCita) {
         try {
-            // Intentamos guardar la cita usando el servicio que creamos antes
+            
             Cita citaGuardada = citaService.agendarCita(nuevaCita);
-            return ResponseEntity.ok(citaGuardada); // Devolvemos un 200 OK y los datos de la cita
+            return ResponseEntity.ok(citaGuardada); 
 
         } catch (RuntimeException e) {
-            // Si el servicio lanza un error (ej. horario ocupado), devolvemos un 400 Bad Request
+            
             return ResponseEntity.badRequest().body(e.getMessage());
         }
     }
